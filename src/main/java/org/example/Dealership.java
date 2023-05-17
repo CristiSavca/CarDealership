@@ -1,5 +1,5 @@
 package org.example;
-
+import java.util.List;
 import java.util.ArrayList;
 
 public class Dealership {
@@ -39,36 +39,37 @@ public class Dealership {
         this.phone = phone;
     }
 
-    public void getVehiclesByPrice(int min, int max){
-
+    public List<Vehicle> getVehiclesByPrice(int min, int max){
+        return null;
     }
 
-    public void getVehiclesByMakeModel(String make,String model){
-
+    public List<Vehicle> getVehiclesByMakeModel(String make,String model){
+        return null;
     }
 
-    public void getVehiclesByYear(int min, int max){
-
+    public List<Vehicle> getVehiclesByYear(int min, int max){
+        return null;
     }
 
-    public void getVehiclesByColor(String color){
-
+    public List<Vehicle> getVehiclesByColor(String color){
+        return null;
     }
 
-    public void getVehiclesByMileage(int min, int max){
-
+    public List<Vehicle> getVehiclesByMileage(int min, int max){
+        return null;
     }
 
-    public void getVehiclesByType(String vehicleType){
-
+    public List<Vehicle> getVehiclesByType(String vehicleType){
+        return null;
     }
 
-    public void getAllVehicles(){
+    public List<Vehicle> getAllVehicles(){
         for (Vehicle v : inventory){
             System.out.println(
                     v.getVin() + " " + v.getYear() + " " + v.getMake() + " " + v.getModel() + " " + v.getVehicleType() + " " + v.getColor() + " " + v.getOdometer() + " " + v.getPrice()
             );
         }
+        return null;
     }
 
     public void addVehicle(Vehicle vehicle){
