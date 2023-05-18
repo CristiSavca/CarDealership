@@ -41,15 +41,15 @@ public class UserInterface {
 
         while (!exit) {
             System.out.println("------ Dealership Menu ------");
-            System.out.println("[1] Get vehicles by price");
-            System.out.println("[2] Get vehicles by make and model");
-            System.out.println("[3] Get vehicles by year");
-            System.out.println("[4] Get vehicles by color");
-            System.out.println("[5] Get vehicles by mileage");
-            System.out.println("[6] Get vehicles by vehicle type");
-            System.out.println("[7] Get all vehicles");
-            System.out.println("[8] Add a vehicle");
-            System.out.println("[9] Remove a vehicle");
+            System.out.println("[1] Search By Price");
+            System.out.println("[2] Search By Make/Model");
+            System.out.println("[3] Search By Year");
+            System.out.println("[4] Search By Color");
+            System.out.println("[5] Search By Mileage");
+            System.out.println("[6] Search By Type");
+            System.out.println("[7] Show All Vehicles");
+            System.out.println("[8] Add Vehicle");
+            System.out.println("[9] Remove Vehicle");
             System.out.println("[0] Exit");
             System.out.print("Enter your choice: ");
             int choice;
