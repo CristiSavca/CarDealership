@@ -65,7 +65,7 @@ public class UserInterface {
                 case 7 -> processGetAllVehiclesRequest();
                 case 8 -> processAddVehicleRequest();
                 case 9 -> processRemoveVehicleRequest();
-                case 0 -> System.out.println("Exiting Dealership Menu...");
+                case 0 -> {System.out.println("Exiting Dealership Menu..."); exit = true;}
                 default -> System.out.println("Invalid choice. Please try again.");
             }
         }
