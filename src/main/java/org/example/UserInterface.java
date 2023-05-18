@@ -36,10 +36,9 @@ public class UserInterface {
     }
     public void display() {
         init();
+        boolean done = false;
 
-        boolean exit = false;
-
-        while (!exit) {
+        while (!done) {
             System.out.println("------ Dealership Menu ------");
             System.out.println("[1] Search By Price");
             System.out.println("[2] Search By Make/Model");
@@ -65,7 +64,7 @@ public class UserInterface {
                 case 7 -> processGetAllVehiclesRequest();
                 case 8 -> processAddVehicleRequest();
                 case 9 -> processRemoveVehicleRequest();
-                case 0 -> {System.out.println("Exiting Dealership Menu..."); exit = true;}
+                case 0 -> {System.out.println("Exiting Dealership Menu..."); done = true;}
                 default -> System.out.println("Invalid choice. Please try again.");
             }
         }
@@ -94,8 +93,7 @@ public class UserInterface {
         System.out.println("Vehicles by Make and Model:");
         ArrayList aList = (ArrayList) dealership.getVehiclesByMakeModel(make, model) ;
 
-            displayVehicles(aList);
-
+        displayVehicles(aList);
         System.out.println();
     }
 
@@ -109,8 +107,7 @@ public class UserInterface {
         System.out.println("Vehicles by Year:");
         ArrayList aList = (ArrayList) dealership.getVehiclesByYear(minYear, maxYear) ;
 
-            displayVehicles(aList);
-
+        displayVehicles(aList);
         System.out.println();
     }
 
@@ -121,8 +118,7 @@ public class UserInterface {
         System.out.println("Vehicles by Color:");
         ArrayList aList = (ArrayList) dealership.getVehiclesByColor(color) ;
 
-            displayVehicles(aList);
-
+        displayVehicles(aList);
         System.out.println();
     }
 
@@ -135,8 +131,7 @@ public class UserInterface {
         System.out.println("Vehicles by Mileage:");
         ArrayList aList = (ArrayList) dealership.getVehiclesByMileage(minMileage, maxMileage) ;
 
-            displayVehicles(aList);
-
+        displayVehicles(aList);
         System.out.println();
     }
 
@@ -147,17 +142,14 @@ public class UserInterface {
         System.out.println("Vehicles by Vehicle Type:");
         ArrayList aList = (ArrayList) dealership.getVehiclesByType(vehicleType) ;
 
-            displayVehicles(aList);
-
+        displayVehicles(aList);
         System.out.println();
     }
 
 
     public void processGetAllVehiclesRequest() {
         ArrayList aList = (ArrayList) dealership.getAllVehicles() ;
-            displayVehicles(aList);
-
-
+        displayVehicles(aList);
     }
 
     public void processAddVehicleRequest() {
@@ -185,26 +177,20 @@ public class UserInterface {
         fileManager.saveDealership(dealership);
 
     }
-
     public void processRemoveVehicleRequest() {
-        System.out.print("Enter the VIN of the vehicle to remove: ");
+        Vehicle v = null;
+        System.out.print("Enter vin of vehicle you would like to remove: ");
         int vin = scanner.nextInt();
-
-        List<Vehicle> vehicles = dealership.getAllVehicles();
-        Vehicle foundVehicle = null;
-
-        for (Vehicle vehicle : vehicles) {
-            if (vehicle.getVin() == vin) {
-                foundVehicle = vehicle;
+        scanner.nextLine();
+        for(Vehicle i : dealership.getAllVehicles()){
+            if(i.getVin() == vin) {
+                System.out.println("Vehicle Found!");
+                v = i;
                 break;
             }
         }
-
-        if (foundVehicle != null) {
-            dealership.removeVehicle(foundVehicle);
-            System.out.println("Vehicle removed successfully.\n");
-        } else {
-            System.out.println("Vehicle with VIN " + vin + " not found.\n");
-        }
+        dealership.removeVehicle(v);
+        fileManager.saveDealership(dealership);
+        System.out.println("Vehicle removed successfully!");
     }
 }
