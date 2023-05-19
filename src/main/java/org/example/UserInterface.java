@@ -20,9 +20,9 @@ public class UserInterface {
         System.out.println("----------------------------------------------------------------------------------------------------------------------");
     }
 
-    private void displayVehicles(ArrayList<Vehicle> inventory) {
+    private void displayVehicles(List<Vehicle> vehicles) {
         printHeader();
-        for (Vehicle vehicle : inventory) {
+        for (Vehicle vehicle : vehicles) {
             System.out.printf("%-15d  %-10d  %-15s  %-15s  %-15s  %-10s  %-15d  %.2f%n",
                     vehicle.getVin(),
                     vehicle.getYear(),
@@ -78,9 +78,8 @@ public class UserInterface {
         System.out.print("Enter maximum price: ");
         double maxPrice = scanner.nextDouble();
 
-        ArrayList aList = (ArrayList) dealership.getVehiclesByPrice(minPrice, maxPrice) ;
         System.out.println("Vehicles by Price:");
-        displayVehicles(aList);
+        displayVehicles(dealership.getVehiclesByPrice(minPrice, maxPrice));
         System.out.println();
     }
 
@@ -91,9 +90,7 @@ public class UserInterface {
         String model = scanner.next();
 
         System.out.println("Vehicles by Make and Model:");
-        ArrayList aList = (ArrayList) dealership.getVehiclesByMakeModel(make, model) ;
-
-        displayVehicles(aList);
+        displayVehicles(dealership.getVehiclesByMakeModel(make, model));
         System.out.println();
     }
 
@@ -105,9 +102,7 @@ public class UserInterface {
         int maxYear = scanner.nextInt();
 
         System.out.println("Vehicles by Year:");
-        ArrayList aList = (ArrayList) dealership.getVehiclesByYear(minYear, maxYear) ;
-
-        displayVehicles(aList);
+        displayVehicles(dealership.getVehiclesByYear(minYear, maxYear));
         System.out.println();
     }
 
@@ -116,9 +111,7 @@ public class UserInterface {
         String color = scanner.next();
 
         System.out.println("Vehicles by Color:");
-        ArrayList aList = (ArrayList) dealership.getVehiclesByColor(color) ;
-
-        displayVehicles(aList);
+        displayVehicles(dealership.getVehiclesByColor(color));
         System.out.println();
     }
 
@@ -129,9 +122,7 @@ public class UserInterface {
         double maxMileage = scanner.nextDouble();
 
         System.out.println("Vehicles by Mileage:");
-        ArrayList aList = (ArrayList) dealership.getVehiclesByMileage(minMileage, maxMileage) ;
-
-        displayVehicles(aList);
+        displayVehicles(dealership.getVehiclesByMileage(minMileage, maxMileage));
         System.out.println();
     }
 
@@ -140,16 +131,13 @@ public class UserInterface {
         String vehicleType = scanner.next();
 
         System.out.println("Vehicles by Vehicle Type:");
-        ArrayList aList = (ArrayList) dealership.getVehiclesByType(vehicleType) ;
-
-        displayVehicles(aList);
+        displayVehicles(dealership.getVehiclesByType(vehicleType));
         System.out.println();
     }
 
 
     public void processGetAllVehiclesRequest() {
-        ArrayList aList = (ArrayList) dealership.getAllVehicles() ;
-        displayVehicles(aList);
+        displayVehicles(dealership.getAllVehicles());
     }
 
     public void processAddVehicleRequest() {
