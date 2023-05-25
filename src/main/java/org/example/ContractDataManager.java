@@ -38,13 +38,23 @@ public class ContractDataManager {
                 String color = details[9];
                 int odometer = Integer.parseInt(details[10]);
                 double price = Double.parseDouble(details[11]);
+                double Tint;
+                double Rims;
+                double Livery;
+                double Turbo;
+                double Body;
 
                 // Create a Vehicle object using the pieces we extracted to pass into contract constructor
                 Vehicle vehicle = new Vehicle(vin, year, make, model, vehicleType, color, odometer, price);
 
                 if (details[0].equals("SALE")) {
+                    Tint = Double.parseDouble(details[16]);
+                    Rims = Double.parseDouble(details[18]);
+                    Livery = Double.parseDouble(details[20]);
+                    Turbo = Double.parseDouble(details[22]);
+                    Body = Double.parseDouble(details[24]);
                     // Create a Contract object using the pieces we extracted and populate our ArrayList contracts
-                    SalesContract contract = new SalesContract(date, name, email, vehicle, finance);
+                    SalesContract contract = new SalesContract(date, name, email, vehicle, finance, Tint, Rims, Livery, Turbo, Body);
                     contracts.add(contract);
                 }else {
                     // Create a Contract object using the pieces we extracted and populate our ArrayList contracts

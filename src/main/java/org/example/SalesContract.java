@@ -4,6 +4,12 @@ public class SalesContract extends Contract {
     private double processingFee;
     private boolean finance;
 
+    private final double Tint;
+    private final double Rims;
+    private final double Livery;
+    private final double Turbo;
+    private final double Body;
+
     public double getTax() {
         return 0.05;
     }
@@ -28,13 +34,38 @@ public class SalesContract extends Contract {
         this.finance = finance;
     }
 
-    public SalesContract(String date, String name, String email, Vehicle vehicleSold, boolean finance) {
+    public double getTint() {
+        return Tint;
+    }
+
+    public double getRims() {
+        return Rims;
+    }
+
+    public double getLivery() {
+        return Livery;
+    }
+
+    public double getTurbo() {
+        return Turbo;
+    }
+
+    public double getBody() {
+        return Body;
+    }
+
+    public SalesContract(String date, String name, String email, Vehicle vehicleSold, boolean finance, double Tint, double Rims, double Livery, double Turbo, double Body) {
         super(date, name, email, vehicleSold);
         this.setDate(date);
         this.setName(name);
         this.setEmail(email);
         this.setVehicleSold(vehicleSold);
         this.finance = finance;
+        this.Tint = Tint;
+        this.Rims = Rims;
+        this.Livery = Livery;
+        this.Turbo = Turbo;
+        this.Body = Body;
 
         if (vehicleSold.getPrice() < 10000){
             this.processingFee = 295;
@@ -63,7 +94,7 @@ public class SalesContract extends Contract {
     public String getPersistenceString() {
         Vehicle v = getVehicleSold();
         String finance = isFinance() ? "YES" : "NO";
-        return String.format("SALE|%s|%s|%s|%d|%d|%s|%s|%s|%s|%d|%.2f|%.2f|%.2f|%.2f|%s|%.2f\n",
+        return String.format("SALE|%s|%s|%s|%d|%d|%s|%s|%s|%s|%d|%.2f|%.2f|%.2f|%.2f|%s|%.2f|Tint|%.2f|Rims|%.2f|Livery|%.2f|Turbo|%.2f|Body|%.2f\n",
                 getDate(),
                 getName(),
                 getEmail(),
@@ -79,8 +110,12 @@ public class SalesContract extends Contract {
                 getProcessingFee(),
                 getTotalPrice(),
                 finance,
-                getMonthlyPayment()) + "";
-
+                getMonthlyPayment(),
+                getTint(),
+                getRims(),
+                getLivery(),
+                getTurbo(),
+                getBody());
     }
 
     public double monthlyPaymentCalculator(double interest, int months) {

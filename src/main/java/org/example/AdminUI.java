@@ -6,7 +6,10 @@ import java.util.Scanner;
 
 public class AdminUI {
     public static Scanner scanner = new Scanner(System.in);
-    private ArrayList<Contract> contracts = new ContractDataManager("contracts.csv").getContracts();
+    private ArrayList<Contract> contracts;
+    private void init(){
+       contracts = new ContractDataManager("contracts.csv").getContracts();
+    }
 
     public void printHeader(){
         System.out.println("                                                     ALL CONTRACTS                                                    ");
@@ -21,6 +24,7 @@ public class AdminUI {
     }
 
     public void display() {
+        init();
         boolean done = false;
         boolean correctPass = false;
 

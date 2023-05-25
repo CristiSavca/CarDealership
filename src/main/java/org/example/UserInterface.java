@@ -189,9 +189,10 @@ public class UserInterface {
 
     public void processSellOrLeaseVehicle() {
         String date = LocalDate.now().toString();
+        scanner.nextLine(); // clear buffer for name input (need whole line)
         System.out.println("Enter your Personal Information:");
         System.out.print("Name: ");
-        String name = scanner.next();
+        String name = scanner.nextLine();
         System.out.print("Email: ");
         String email = scanner.next();
         System.out.print("Enter VIN of car you want: ");
@@ -208,35 +209,30 @@ public class UserInterface {
         System.out.print("Sell or Lease: ");
         String choice = scanner.next().trim().toLowerCase();
         if (choice.equals("sell")) {
-//            upgrades();
+            System.out.print("Window Tint - $400 (yes/no): ");
+            double Tint = scanner.next().trim().equalsIgnoreCase("yes") ? 400 : 0;
+            System.out.print("BBS Rim x4 - $3200 (yes/no): ");
+            double Rims = scanner.next().trim().equalsIgnoreCase("yes") ? 3200 : 0;
+            System.out.print("Livery Wrap - $4000 (yes/no): ");
+            double Livery = scanner.next().trim().equalsIgnoreCase("yes") ? 4000 : 0;
+            System.out.print("Turbo Kit - $2600 (yes/no): ");
+            double Turbo = scanner.next().trim().equalsIgnoreCase("yes") ? 2600 : 0;
+            System.out.print("Wide Body Kit - $4000 (yes/no): ");
+            double Body = scanner.next().trim().equalsIgnoreCase("yes") ? 4000 : 0;
 
             System.out.print("Finance? (yes/no): ");
             boolean finance = scanner.next().trim().equalsIgnoreCase("yes");
-            Contract salesContract = new SalesContract(date, name, email, vehicle, finance);
-            contractManager.saveContract(salesContract);
+            Contract salesContract = new SalesContract(date, name, email, vehicle, finance, Tint, Rims, Livery, Turbo, Body);
+            contractManager.saveContract(salesContract); // write contract to contracts file
+            dealership.removeVehicle(vehicle); // update vehicle inventory
+            fileManager.saveDealership(dealership);
         } else if (choice.equals("lease")) {
             Contract leaseContract = new LeaseContract(date, name, email, vehicle);
             contractManager.saveContract(leaseContract);
+            dealership.removeVehicle(vehicle); // update vehicle inventory
+            fileManager.saveDealership(dealership);
         } else {
             System.out.println("Please enter a proper choice");
-            return;
         }
-        dealership.removeVehicle(vehicle);
-        fileManager.saveDealership(dealership);
     }
-
-//    private static boolean[] upgrades() {
-//        System.out.print("Window Tint - $400 (yes/no): ");
-//        boolean Tint = scanner.next().trim().equalsIgnoreCase("yes"); // ? 400 : 0;
-//        System.out.print("BBS Rim x4 - $3200 (yes/no): ");
-//        boolean Rims = scanner.next().trim().equalsIgnoreCase("yes"); // ? 3200 : 0;
-//        System.out.print("Livery Wrap - $4000 (yes/no): ");
-//        boolean Livery = scanner.next().trim().equalsIgnoreCase("yes"); // ? 4000 : 0;
-//        System.out.print("Turbo Kit - $2600 (yes/no): ");
-//        boolean Turbo = scanner.next().trim().equalsIgnoreCase("yes"); // ? 2600 : 0;
-//        System.out.print("Wide Body Kit - $4000 (yes/no): ");
-//        boolean Body = scanner.next().trim().equalsIgnoreCase("yes"); // ? 4000 : 0;
-//
-//        return new boolean[] {Tint, Rims, Livery, Turbo, Body};
-//    }
 }
