@@ -5,7 +5,7 @@ public class SalesContract extends Contract {
     private boolean finance;
 
     public double getTax() {
-        return 1.05;
+        return 0.05;
     }
 
     public double getRecordingFee() {
@@ -28,12 +28,13 @@ public class SalesContract extends Contract {
         this.finance = finance;
     }
 
-    public SalesContract(String date, String name, String email, Vehicle vehicleSold) {
+    public SalesContract(String date, String name, String email, Vehicle vehicleSold, boolean finance) {
         super(date, name, email, vehicleSold);
         this.setDate(date);
         this.setName(name);
         this.setEmail(email);
         this.setVehicleSold(vehicleSold);
+        this.finance = finance;
 
         if (vehicleSold.getPrice() < 10000){
             this.processingFee = 295;
@@ -44,7 +45,7 @@ public class SalesContract extends Contract {
 
     @Override
     public double getTotalPrice() {
-        return (getVehicleSold().getPrice() * getTax()) + getRecordingFee() + processingFee;
+        return getVehicleSold().getPrice() + (getVehicleSold().getPrice() * getTax()) + getRecordingFee() + processingFee;
     }
 
     @Override
@@ -56,6 +57,29 @@ public class SalesContract extends Contract {
                 return monthlyPaymentCalculator(0.0525, 24);
             }
         } else return 0;
+    }
+
+    @Override
+    public String getPersistenceString() {
+        Vehicle v = getVehicleSold();
+        String finance = isFinance() ? "YES" : "NO";
+        return String.format("SALE|%s|%s|%s|%d|%d|%s|%s|%s|%s|%d|%.2f|%.2f|%.2f|%.2f|%s|%.2f\n",
+                getDate(),
+                getName(),
+                getEmail(),
+                v.getVin(),
+                v.getYear(),
+                v.getMake(),
+                v.getModel(),
+                v.getVehicleType(),
+                v.getColor(),
+                v.getOdometer(),
+                v.getPrice(),
+                getTax() * getVehicleSold().getPrice(),
+                getProcessingFee(),
+                getTotalPrice(),
+                finance,
+                getMonthlyPayment());
     }
 
     public double monthlyPaymentCalculator(double interest, int months) {

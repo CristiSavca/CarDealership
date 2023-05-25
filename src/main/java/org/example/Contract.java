@@ -1,6 +1,9 @@
 package org.example;
 
+import java.util.ArrayList;
+
 public abstract class Contract {
+    private ArrayList<Vehicle> contracts = new ArrayList<>();
     private String date;
 
     private String name;
@@ -57,4 +60,6 @@ public abstract class Contract {
     public abstract double getTotalPrice();
 
     public abstract double getMonthlyPayment();
+
+    public abstract String getPersistenceString();
 }

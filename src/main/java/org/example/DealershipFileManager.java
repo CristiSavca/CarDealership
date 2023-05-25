@@ -49,19 +49,18 @@ public class DealershipFileManager {
     }
 
     public void saveDealership(Dealership dealership) {
-
         try (FileWriter fileWriter = new FileWriter(fileName)) {
-            for (Vehicle v : dealership.getAllVehicles()) {
-                String vehicle = String.format("%d|%d|%s|%s|%s|%s|%d|%.2f\n",
-                        v.getVin(),
-                        v.getYear(),
-                        v.getMake(),
-                        v.getModel(),
-                        v.getVehicleType(),
-                        v.getColor(),
-                        v.getOdometer(),
-                        v.getPrice());
-                fileWriter.write(vehicle);
+            for (Vehicle vehicle : dealership.getAllVehicles()) {
+                String vehicleInfo = String.format("%d|%d|%s|%s|%s|%s|%d|%.2f\n",
+                        vehicle.getVin(),
+                        vehicle.getYear(),
+                        vehicle.getMake(),
+                        vehicle.getModel(),
+                        vehicle.getVehicleType(),
+                        vehicle.getColor(),
+                        vehicle.getOdometer(),
+                        vehicle.getPrice());
+                fileWriter.write(vehicleInfo);
             }
             fileWriter.close();
 
@@ -69,6 +68,5 @@ public class DealershipFileManager {
         } catch (IOException e) {
             System.err.println("Error saving dealership inventory");
         }
-
     }
 }
