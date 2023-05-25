@@ -79,7 +79,8 @@ public class SalesContract extends Contract {
                 getProcessingFee(),
                 getTotalPrice(),
                 finance,
-                getMonthlyPayment());
+                getMonthlyPayment()) + "";
+
     }
 
     public double monthlyPaymentCalculator(double interest, int months) {

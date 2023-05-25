@@ -55,7 +55,6 @@ public class ContractDataManager {
         } catch (IOException e) {
             System.err.println("Error reading inventory file: ");
         }
-
         return contracts;
     }
 
