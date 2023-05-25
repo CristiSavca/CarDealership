@@ -4,15 +4,15 @@ Car Dealership allows owners/employees to manage their car inventory and create 
 
 ## Home Screens
 
-<img width="195" alt="image" src="https://github.com/CristiSavca/CarDealership/assets/58373811/e26cb913-3f33-464e-8ca2-087d2c4d80b7">
+<img width="195" alt="Screenshot 2023-05-25 043239" src="https://github.com/CristiSavca/CarDealership/assets/58373811/afbf1760-b24d-40a8-abf2-d0cd15514410">
 
 ## Products Screen
 
-<img width="728" alt="image" src="https://github.com/CristiSavca/CarDealership/assets/58373811/6abd41d5-fb8e-4ecc-a851-299361f15ebd">
+<img width="728" alt="Screenshot 2023-05-25 043338" src="https://github.com/CristiSavca/CarDealership/assets/58373811/35c76923-feae-4122-8c97-249f8b7e8ea9">
 
 ## Calculator page
 
-<img width="967" alt="image" src="https://github.com/CristiSavca/CarDealership/assets/58373811/31243e44-bbb8-46b3-b25e-f2255a4829f7">
+<img width="967" alt="Screenshot 2023-05-25 043532" src="https://github.com/CristiSavca/CarDealership/assets/58373811/6323b4e7-e4cd-4dfa-ab75-7c78b91c0a21">
 
 This error occured because I did not realize that I had to recreate a car object for the cars in the contracts.csv file because they were removed from the inventory file and array once added to the contracts file.
 
