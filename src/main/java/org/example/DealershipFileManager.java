@@ -48,8 +48,15 @@ public class DealershipFileManager {
         return dealership;
     }
 
-    public void saveDealership(Dealership dealership) {
+    public void saveDealership(Dealership dealership) { // write dealership info, then vehicles
+        String dealerName = dealership.getName();
+        String address = dealership.getAddress();
+        String phone = dealership.getPhone();
+        String dealershipInfo = String.format("%s|%s|%s\n", address, dealerName, phone);
+
         try (FileWriter fileWriter = new FileWriter(fileName)) {
+            fileWriter.write(dealershipInfo);
+
             for (Vehicle vehicle : dealership.getAllVehicles()) {
                 String vehicleInfo = String.format("%d|%d|%s|%s|%s|%s|%d|%.2f\n",
                         vehicle.getVin(),
