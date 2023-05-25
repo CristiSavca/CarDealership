@@ -1,9 +1,10 @@
 package org.example;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public abstract class Contract {
-    private ArrayList<Vehicle> contracts = new ArrayList<>();
+    public ArrayList<Contract> contracts = new ArrayList<>();
     private String date;
 
     private String name;

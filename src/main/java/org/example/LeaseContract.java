@@ -34,7 +34,7 @@ public class LeaseContract extends Contract {
     @Override
     public String getPersistenceString() {
             Vehicle v = getVehicleSold();
-            return String.format("LEASE|%s|%s|%s|%d|%d|%s|%s|%s|%s|%d|%.2f|%.2f|%.2f|%.2f|%s\n",
+            return String.format("LEASE|%s|%s|%s|%d|%d|%s|%s|%s|%s|%d|%.2f|%.2f|%.2f|%.2f|%.2f\n",
                     getDate(),
                     getName(),
                     getEmail(),

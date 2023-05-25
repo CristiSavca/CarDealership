@@ -6,19 +6,17 @@ import java.util.List;
 import java.util.Scanner;
 
 public class UserInterface {
-
+    public static Scanner scanner = new Scanner(System.in);
     private DealershipFileManager fileManager;
     private ContractDataManager contractManager;
-    Contract contracts;
+    ArrayList<Contract> contracts;
     Dealership dealership;
     private void init() {
         fileManager = new DealershipFileManager("inventory.csv");
         contractManager = new ContractDataManager("contracts.csv");
         dealership = fileManager.getDealership();
-//        contracts = contractManager.getContracts();
+        contracts = contractManager.getContracts();
     }
-
-    public static Scanner scanner = new Scanner(System.in);
 
     public void printHeader(){
         System.out.println("VIN              YEAR        MAKE             MODEL            TYPE             COLOR       ODOMETER         PRICE");
