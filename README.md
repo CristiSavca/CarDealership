@@ -12,9 +12,9 @@ Car Dealership allows owners/employees to manage their car inventory and create 
 
 <img width="479" alt="image" src="https://github.com/CristiSavca/CarDealership/assets/58373811/7c0f162e-3959-4966-a38e-c297acc96d19">
 
-## Bonus Challenge
+## Bonus Challenges
 
-<img width="802" alt="image" src="https://github.com/CristiSavca/CarDealership/assets/58373811/2a8b268f-9e07-44fd-a8fd-bb0d8ea483ac">
+#<img width="802" alt="image" src="https://github.com/CristiSavca/CarDealership/assets/58373811/2a8b268f-9e07-44fd-a8fd-bb0d8ea483ac">
 
 <img width="152" alt="image" src="https://github.com/CristiSavca/CarDealership/assets/58373811/14c2f7f7-6f20-4ac3-bac3-0ad18702381f">
 
