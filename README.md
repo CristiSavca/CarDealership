@@ -4,19 +4,27 @@ Car Dealership allows owners/employees to manage their car inventory and create 
 
 ## Home Screens
 
-<img width="195" alt="Screenshot 2023-05-25 043239" src="https://github.com/CristiSavca/CarDealership/assets/58373811/afbf1760-b24d-40a8-abf2-d0cd15514410">
+<img width="130" alt="image" src="https://github.com/CristiSavca/CarDealership/assets/58373811/a40d28e4-5050-4529-985e-5a8abcecd7c2">
+
+<img width="139" alt="image" src="https://github.com/CristiSavca/CarDealership/assets/58373811/b1eaf567-0af9-4aef-a440-228e45535835">
 
 ## Products Screen
 
-<img width="728" alt="Screenshot 2023-05-25 043338" src="https://github.com/CristiSavca/CarDealership/assets/58373811/35c76923-feae-4122-8c97-249f8b7e8ea9">
+<img width="479" alt="image" src="https://github.com/CristiSavca/CarDealership/assets/58373811/7c0f162e-3959-4966-a38e-c297acc96d19">
 
-## Calculator page
+## Bonus Challenge
+
+<img width="802" alt="image" src="https://github.com/CristiSavca/CarDealership/assets/58373811/2a8b268f-9e07-44fd-a8fd-bb0d8ea483ac">
+
+<img width="152" alt="image" src="https://github.com/CristiSavca/CarDealership/assets/58373811/14c2f7f7-6f20-4ac3-bac3-0ad18702381f">
+
+## Calculator Page
 
 <img width="967" alt="Screenshot 2023-05-25 043532" src="https://github.com/CristiSavca/CarDealership/assets/58373811/6323b4e7-e4cd-4dfa-ab75-7c78b91c0a21">
 
-This error occured because I did not realize that I had to recreate a car object for the cars in the contracts.csv file because they were removed from the inventory file and array once added to the contracts file.
+This error occured because I did not realize that I had to recreate the vehicle object for the vehicles in the contracts.csv file when when constructing the contract objects and adding them to an ArrayList of contracts, because the same vehicles were removed from the inventory file and array when the vehicles were sold or leased earlier, so I could not get their objects from anywhere.
 
-## Interesting code
+## Interesting Code
 
 ```
 while ((input = bufReader.readLine()) != null) { // For every line in the csv file until no more lines:
