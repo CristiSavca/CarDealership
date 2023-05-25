@@ -5,7 +5,7 @@ public class SalesContract extends Contract {
     private boolean finance;
 
     public double getTax() {
-        return 0.05;
+        return 1.05;
     }
 
     public double getRecordingFee() {
@@ -51,8 +51,18 @@ public class SalesContract extends Contract {
     public double getMonthlyPayment() {
         if (finance){
             if (getVehicleSold().getPrice() >= 10000){
-
+                return monthlyPaymentCalculator(0.0425, 48);
+            } else{
+                return monthlyPaymentCalculator(0.0525, 24);
             }
-        }
+        } else return 0;
+    }
+
+    public double monthlyPaymentCalculator(double interest, int months) {
+        double loanAmount = getVehicleSold().getPrice();
+        // Monthly interest rate = yearly rate divided by 12
+        double monthlyRate = interest / 12.0;
+        // formula
+        return (loanAmount*monthlyRate) / (1-Math.pow(1+monthlyRate, -months));
     }
 }
