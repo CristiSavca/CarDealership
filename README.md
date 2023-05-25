@@ -59,4 +59,4 @@ while ((input = bufReader.readLine()) != null) { // For every line in the csv fi
             }
 ```
 
-This code is interesting because it parses all the different types of contracts possible and makes objects out of them accordingly.
+This code is interesting because it parses all the different types of contracts possible and makes objects out of them accordingly: It checks if a Sale contract is financed or not, along with differentiating between Sale and Lease contracts.
