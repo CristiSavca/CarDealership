@@ -19,7 +19,7 @@ public class AdminUI {
     private void displayContracts(ArrayList<Contract> contracts) {
         printHeader();
         for (Contract contract : contracts) {
-            System.out.println(contract.getPersistenceString());
+            System.out.print(contract.getPersistenceString());
         }
     }
 
@@ -34,7 +34,7 @@ public class AdminUI {
             if (pass.equals("2424")){
                 correctPass = true;
             } else{
-                System.out.println("Wrong Password");
+                System.out.println("Incorrect Password...");
                 correctPass = true;
                 done = true;
             }

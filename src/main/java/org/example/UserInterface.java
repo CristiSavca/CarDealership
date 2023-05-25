@@ -20,7 +20,7 @@ public class UserInterface {
 
     public void printHeader(){
         System.out.println("VIN              YEAR        MAKE             MODEL            TYPE             COLOR       ODOMETER         PRICE");
-        System.out.println("----------------------------------------------------------------------------------------------------------------------");
+        System.out.println("-----------------------------------------------------" + dealership.getName().toUpperCase() + "--------------------------------------------------------");
     }
 
     private void displayVehicles(List<Vehicle> vehicles) {
